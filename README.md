@@ -1,4 +1,4 @@
-# ForestTime v5.0.1
+# ForestTime v5.3.0
 
 A mobile platform for IUFRO-standardized time studies in mechanized forest operations.
 
