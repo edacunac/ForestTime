@@ -1,0 +1,11 @@
+source_field_or_content,public_treatment,reason
+calendar date,Replaced by sequential study_day (1–8),Remove calendar-year and exact-date information
+clock start/end,Replaced by start_offset_seconds,Remove exact time of day while preserving event sequence
+controller/observer name,Removed,Direct personal identifier
+company/contractor,Removed,Organizational identifier not required for analysis
+estate/location,Removed,Geographic identifier not required for analysis
+stand/rodal identifier,Removed,Potential site identifier
+free-text observations,Removed,May contain names or identifiable operational details
+source row identifier,Replaced by sequential event_id,Avoid retaining source-system identifiers
+zero-duration Felling record,Excluded,Invalid duration; one record
+Felling duration >120 s,Retained and flagged,Transparent outlier handling; seven records

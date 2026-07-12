@@ -1,0 +1,9 @@
+metric,value,unit,definition
+valid_event_records,7353,events,Rows with positive calculable duration
+productive_felling_cycles,6426,cycles,Positive-duration records coded A (Felling)
+cycle_outliers_gt_120s,7,cycles,"Felling cycles flagged, retained in public events CSV"
+cycles_used_for_filtered_statistics,6419,cycles,Felling cycles with duration <= 120 s
+workplace_time,91.260000,hours,Sum of all valid event durations
+mean_filtered_felling_cycle_time,16.121826,seconds,Arithmetic mean after excluding cycles >120 s
+filtered_felling_cycle_cv,49.144733,percent,Population-form CV used by ForestTime demonstration calculation
+study_days,8,days,Calendar dates replaced by sequential study-day numbers

@@ -1,0 +1,11 @@
+variable,type,unit_or_values,description
+event_id,integer,1..n,Sequential public event identifier
+study_day,integer,1..8,Anonymized sequential workday; no calendar date retained
+start_offset_seconds,decimal,s,Seconds elapsed since the first recorded event of that study day
+duration_seconds,decimal,s,Observed event duration
+iufro_code,categorical,"MW,CW,AW,RL,PL,OP,SU,TD,RT,MT,RF,DT,ME,RP,IT",IUFRO activity code
+work_category,categorical,"PW,SW,NT","Productive, supportive, or non-work category"
+activity_code,categorical,"A,B,C,D,TP",Source operational activity code
+activity_label,categorical,"Felling,Move to Tree,Clear Brush,Accumulate,or IUFRO label",Public English activity label
+productive_cycle_id,integer or blank,1..6426,Sequential identifier assigned only to Felling records
+cycle_time_outlier_gt_120s,binary,"0,1",Flags Felling durations greater than 120 s; rows remain in the file
