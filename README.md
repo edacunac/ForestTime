@@ -1,57 +1,91 @@
-# ForestTime v5.3.0
+# ForestTime v5.4.0
 
-A mobile platform for IUFRO-standardized time studies in mechanized forest operations.
+A mobile platform for IUFRO-standardized time studies in forest operations.
 
 ## Overview
 
-ForestTime is an Android mobile application designed for conducting IUFRO-standardized time studies of mechanized forest operations. The application implements the time classification hierarchy defined by Björheden et al. (1995), with machine-specific sub-element decomposition for predefined equipment profiles.
+ForestTime is an Android mobile application for conducting direct-observation time studies in mechanized, motor-manual, and manual forest operations. It implements the International Union of Forest Research Organizations (IUFRO) time-classification hierarchy together with machine-specific and user-defined work elements.
 
-## Features
+## ForestTime 5.4.0
 
-- Machine-specific profiles: Harvester, Forwarder, Skidder, Processor, Feller-Buncher, Chainsaw, Yarder, and Custom.
+Version 5.4.0 introduces and clarifies:
+
+- Retrospective completed-element recording: activity buttons label the interval that has just ended.
+- Start observation (SO) arms the study while the timer remains at zero until the first activity is selected.
+- Continuous timing across activity transitions.
+- Cycle-boundary handling that assigns data-entry time to the first completed element of the next cycle rather than automatically classifying it as delay.
+- Configurable allowable relative error for live sample-size estimation (5% default).
+- Metric and Imperial unit systems.
+- Updated recovery, diagnostics, guidance, branding, and version information.
+
+Voice control is not included in this release. It remains a future-development option requiring validation under noisy field conditions.
+
+## Core features
+
+- Predefined profiles: Harvester, Forwarder, Skidder, Processor, Feller-Buncher, Chainsaw, and Yarder.
+- Custom profile for machines or operations not represented by a predefined template.
 - IUFRO-standardized time classification.
-- Real-time sample size estimation.
-- Automated R script generation.
-- Millisecond precision using a monotonic system clock.
-- Bilingual interface: English / Spanish.
-- GPS geolocation at study initiation.
-- Crash recovery with automatic saving after each event.
-- Complete export package including CSV, JSON, and R script files.
+- Real-time sample-size estimation.
+- Automated R-script generation.
+- Millisecond-resolution timing using a monotonic system clock.
+- English and Spanish interface.
+- Optional GPS geolocation at study initiation.
+- Crash recovery with automatic persistence after each event.
+- Export package containing CSV, JSON, and R files.
 
 ## Installation
 
-Download the APK from the latest GitHub Release and install it on an Android 7.0 or higher device.
+Download `ForestTime-5.4.0-release.apk` from the [v5.4.0 GitHub release](https://github.com/edacunac/ForestTime/releases/tag/v5.4.0). Android 7.0 (API 24) or later is required.
 
-## Machine Profiles
+ForestTime 5.4.0 uses a new application-signing key. Devices with ForestTime 5.3.0 or an earlier release installed must uninstall the previous version before installing 5.4.0. Export any studies that must be retained before uninstalling.
 
-| Machine | Main work sub-elements | Production variables |
+## Observation workflow
+
+1. Define Identification, Study Conditions, and Machine Type.
+2. Press SO to arm the observation; the timer remains at zero.
+3. Select the first activity when it actually begins.
+4. At each subsequent boundary, select the activity that has just been completed.
+5. Press New Cycle at the cycle boundary and enter the selected production variables.
+6. Review the live indicators and export the study package.
+
+## Machine profiles
+
+| Machine | Main-work sub-elements | Example production variables |
 |---|---|---|
-| Harvester | Move to tree, Felling, Delimbing, Bucking, Stacking | DBH, species, tree volume, number of logs |
-| Forwarder | Travel empty, Loading, Travel loaded, Unloading | Distance, load volume, number of logs |
-| Skidder | Travel empty, Choking/Grapple, Skid loaded, Unhook, Decking | Skid distance, number of pieces, volume, slope |
+| Harvester | Move to Tree, Felling, Delimbing, Bucking, Stacking | DBH, species, tree volume, number of logs |
+| Forwarder | Travel Empty, Loading, Travel Loaded, Unloading | Distance, load volume, number of logs |
+| Skidder | Travel Empty, Choking/Grapple, Skid Loaded, Unhook, Decking | Skid distance, number of pieces, volume, slope |
 | Processor | Feed/Grab, Delimbing, Bucking, Stacking | DBH, species, log volume |
-| Feller-Buncher | Move to tree, Felling, Accumulate, Dump bunch | Number of trees, DBH, species, slope |
+| Feller-Buncher | Move to Tree, Felling, Accumulate, Dump Bunch | Number of trees, DBH, species, slope |
 | Chainsaw | Felling, Limbing, Bucking | DBH, species, height, slope |
-| Yarder | Outhaul, Lateral in, Hook, Inhaul, Unhook/Deck | Yarding distance, number of logs, volume, slope |
+| Yarder | Outhaul, Lateral In, Hook, Inhaul, Unhook/Deck | Yarding distance, number of logs, volume, slope |
 
-## Export Format
+## Export format
 
 The application exports a ZIP archive containing:
 
-- `events_data.csv`: individual event records with IUFRO codes.
-- `production_data.csv`: per-cycle production variables.
-- `metadata.json`: study metadata, GPS coordinates, and computed indicators.
-- `analysis_ForestTime.R`: dynamically generated R analysis script.
+- `events_data.csv`: individual event records and IUFRO codes.
+- `production_data.csv`: cycle-level production variables.
+- `metadata.json`: study metadata, optional GPS coordinates, configuration, and indicators.
+- `analysis_ForestTime.R`: generated R analysis script intended as a reproducible analytical starting point.
 
-## Example Dataset
+CSV remains the authoritative tabular format because it is open, lightweight, inspectable, and directly compatible with R, Python, spreadsheets, and statistical software.
 
-The supplementary dataset corresponds to a Tigercat LS855C shovel logger using the Feller-Buncher profile. It includes 7,353 events and 6,426 cycles collected over 8 working days.
+## Demonstration dataset
 
-## Citation
+The public anonymized dataset demonstrates the workflow using observations of a Tigercat LS855C feller-buncher. Because the machine was not represented by a dedicated predefined option, the Custom profile was used. The dataset contains 7,353 coded event records and 6,426 felling cycles across eight anonymized study-day codes. Calendar dates, clock times, personal identifiers, company and location names, and free-text notes are not included.
 
-If you use ForestTime in your research, please cite:
+See the [data documentation](data/README.md).
 
-Acuña, E., Cancino, J., Acuña, C., & Ambrosio, Y. ForestTime: A mobile platform for IUFRO-standardized time studies in mechanized forest operations. *International Journal of Forest Engineering*. Submitted.
+## Citation and archive
+
+ForestTime v5.4.0 and the accompanying anonymized example data are archived at:
+
+[https://doi.org/10.5281/zenodo.22062128](https://doi.org/10.5281/zenodo.22062128)
+
+If you use ForestTime in research, please cite:
+
+Acuña, E., Cancino, J., Acuña, C., & Ambrosio, Y. *ForestTime: A mobile platform for IUFRO-standardized time studies in forest operations*. International Journal of Forest Engineering. Manuscript under review.
 
 ## Authors
 
@@ -62,9 +96,8 @@ Acuña, E., Cancino, J., Acuña, C., & Ambrosio, Y. ForestTime: A mobile platfor
 
 ## Laboratory
 
-LASeR-EF — Laboratorio de Algoritmos y Sensoramiento Remoto en Ecosistemas Forestales  
-Facultad de Ciencias Forestales, Universidad de Concepción, Chile.
+LASeR — Facultad de Ciencias Forestales, Universidad de Concepción, Chile.
 
-## License
+## Licenses
 
-This project is licensed under the GNU General Public License v3.0. See the `LICENSE` file for details.
+The ForestTime application and repository documentation are distributed under the GNU General Public License v3.0 or later. The demonstration data in the `data` directory are distributed under the Creative Commons Attribution 4.0 International license.
