@@ -100,4 +100,6 @@ LASeR — Facultad de Ciencias Forestales, Universidad de Concepción, Chile.
 
 ## Licenses
 
-The ForestTime application and repository documentation are distributed under the GNU General Public License v3.0 or later. The demonstration data in the `data` directory are distributed under the Creative Commons Attribution 4.0 International license.
+The ForestTime APK is distributed under the [ForestTime Academic Use License 1.0](LICENSE). It may be installed and used, without modification, for non-commercial academic research and teaching. Modification, reverse engineering, redistribution, sublicensing, and commercial use are not permitted except where applicable law requires otherwise or prior written permission is obtained from the copyright holders.
+
+The demonstration data in the `data` directory are distributed separately under the Creative Commons Attribution 4.0 International license.
