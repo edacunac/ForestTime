@@ -19,7 +19,7 @@ The summary values were calculated from the anonymized event table. Values in se
 
 ## Archive
 
-The dataset accompanies ForestTime v5.4.0 and is permanently archived at [https://doi.org/10.5281/zenodo.22062128](https://doi.org/10.5281/zenodo.22062128).
+The dataset accompanies ForestTime v5.4.0 and is permanently archived at [https://doi.org/10.5281/zenodo.22062332](https://doi.org/10.5281/zenodo.22062332).
 
 ## License
 
