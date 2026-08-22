@@ -5,7 +5,7 @@ title: "ForestTime: A mobile platform for IUFRO-standardized time studies in for
 version: "5.4.0"
 date-released: "2026-08-22"
 doi: "10.5281/zenodo.22062128"
-license: "GPL-3.0-or-later"
+license-url: "https://github.com/edacunac/ForestTime/blob/main/LICENSE"
 url: "https://github.com/edacunac/ForestTime"
 
 authors:
