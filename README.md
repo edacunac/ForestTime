@@ -81,7 +81,7 @@ See the [data documentation](data/README.md).
 
 ForestTime v5.4.0 and the accompanying anonymized example data are archived at:
 
-[https://doi.org/10.5281/zenodo.22062128](https://doi.org/10.5281/zenodo.22062128)
+[https://doi.org/10.5281/zenodo.22062332](https://doi.org/10.5281/zenodo.22062332)
 
 If you use ForestTime in research, please cite:
 
