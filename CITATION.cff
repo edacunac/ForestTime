@@ -4,7 +4,7 @@ type: software
 title: "ForestTime: A mobile platform for IUFRO-standardized time studies in forest operations"
 version: "5.4.0"
 date-released: "2026-08-22"
-doi: "10.5281/zenodo.22062128"
+doi: "10.5281/zenodo.22062332"
 license-url: "https://github.com/edacunac/ForestTime/blob/main/LICENSE"
 url: "https://github.com/edacunac/ForestTime"
 
