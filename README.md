@@ -94,7 +94,7 @@ The previous ForestTime v5.4.0 release and the accompanying anonymized example d
 
 [https://doi.org/10.5281/zenodo.22062332](https://doi.org/10.5281/zenodo.22062332)
 
-The version-specific DOI for ForestTime v5.4.1 will be added after Zenodo completes the new-version deposit.
+ForestTime v5.4.1 is archived at [https://doi.org/10.5281/zenodo.23826738](https://doi.org/10.5281/zenodo.23826738).
 
 If you use ForestTime in research, please cite:
 

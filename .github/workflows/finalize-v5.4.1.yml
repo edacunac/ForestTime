@@ -1,0 +1,39 @@
+name: Finalize ForestTime v5.4.1 metadata
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/finalize-v5.4.1.yml
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add Zenodo DOI to GitHub release notes
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > release-notes.md <<'NOTES'
+          Signed Android APK release of ForestTime 5.4.1.
+
+          Changes:
+
+          - Removes the overlap at the 15% terrain-slope boundary.
+          - Defines flat terrain as 0% <= slope <= 15%, moderate terrain as 15% < slope <= 30%, and steep terrain as slope > 30%.
+          - Preserves the ForestTime 5.4.0 study format and application identifier.
+          - Updates the Android build toolchain to Kotlin 2.4.21 and KSP 2.3.12.
+
+          License: ForestTime Academic Use License 1.0 for unmodified, non-commercial academic research and teaching use. The anonymized CSV datasets remain under CC BY 4.0.
+
+          SHA-256: 1622ECCAB09DF577FA7C1A904D074C8991774B63B080ABEF9307E70894B5EC0F
+
+          Minimum supported version: Android 7.0 (API 24).
+
+          Zenodo: https://doi.org/10.5281/zenodo.23826738
+          NOTES
+          gh release edit v5.4.1 --repo edacunac/ForestTime --notes-file release-notes.md
