@@ -1,0 +1,35 @@
+name: Check Zenodo for ForestTime v5.4.1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/check-zenodo-v5.4.1.yml
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Wait for Zenodo GitHub integration
+        shell: bash
+        run: |
+          for attempt in $(seq 1 24); do
+            echo "Zenodo check $attempt/24"
+            response=$(curl -fsS --get 'https://zenodo.org/api/records' \
+              --data-urlencode 'q=ForestTime' \
+              --data-urlencode 'sort=mostrecent' \
+              --data-urlencode 'size=25' \
+              --data-urlencode 'all_versions=true')
+            match=$(printf '%s' "$response" | jq -r '.hits.hits[] | select(((.metadata.version // "") | test("5\\.4\\.1"; "i")) or ((.metadata.title // .title // "") | test("ForestTime.*5\\.4\\.1|5\\.4\\.1.*ForestTime"; "i"))) | [.id, .doi, (.metadata.version // ""), (.metadata.title // .title // "")] | @tsv' | head -n 1)
+            if [ -n "$match" ]; then
+              echo "ZENODO_FORESTTIME_V5_4_1=$match"
+              exit 0
+            fi
+            sleep 30
+          done
+          echo 'ForestTime v5.4.1 was not found in the public Zenodo API within 12 minutes.'
+          exit 1
