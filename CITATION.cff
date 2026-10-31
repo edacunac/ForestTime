@@ -2,9 +2,8 @@ cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 type: software
 title: "ForestTime: A mobile platform for IUFRO-standardized time studies in forest operations"
-version: "5.4.0"
-date-released: "2026-08-22"
-doi: "10.5281/zenodo.22062332"
+version: "5.4.1"
+date-released: "2026-10-30"
 license-url: "https://github.com/edacunac/ForestTime/blob/main/LICENSE"
 url: "https://github.com/edacunac/ForestTime"
 
@@ -34,4 +33,4 @@ keywords:
   - "machine productivity"
   - "R script generation"
 
-abstract: "ForestTime is an Android mobile application for IUFRO-standardized direct-observation time studies in forest operations. Version 5.4.0 implements retrospective completed-element recording, clarified cycle-boundary handling, configurable live sample-size estimation, local persistence, crash recovery, and structured export to CSV, JSON, and R."
+abstract: "ForestTime is an Android mobile application for IUFRO-standardized direct-observation time studies in forest operations. Version 5.4.1 corrects the terrain-slope class boundary at 15%, preserving the version 5.4.0 study format, IUFRO classification workflow, local persistence, crash recovery, and structured export to CSV, JSON, and R."

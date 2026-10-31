@@ -1,0 +1,48 @@
+name: Publish ForestTime v5.4.1
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-v5.4.1.yml
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out staged release asset
+        uses: actions/checkout@v4
+        with:
+          ref: release-assets-v5.4.1
+
+      - name: Reconstruct and verify signed APK
+        shell: bash
+        run: |
+          cat release-chunks/v5.4.1/chunk-*.bin > ForestTime-5.4.1-release.apk
+          echo "1622eccab09df577fa7c1a904d074c8991774b63b080abef9307e70894b5ec0f  ForestTime-5.4.1-release.apk" | sha256sum -c -
+
+      - name: Create GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          cat > release-notes.md <<'NOTES'
+          Signed Android APK release of ForestTime 5.4.1.
+
+          Changes:
+
+          - Removes the overlap at the 15% terrain-slope boundary.
+          - Defines flat terrain as 0% <= slope <= 15%, moderate terrain as 15% < slope <= 30%, and steep terrain as slope > 30%.
+          - Preserves the ForestTime 5.4.0 study format and application identifier.
+          - Updates the Android build toolchain to Kotlin 2.4.21 and KSP 2.3.12.
+
+          License: ForestTime Academic Use License 1.0 for unmodified, non-commercial academic research and teaching use. The anonymized CSV datasets remain under CC BY 4.0.
+
+          SHA-256: 1622ECCAB09DF577FA7C1A904D074C8991774B63B080ABEF9307E70894B5EC0F
+
+          Minimum supported version: Android 7.0 (API 24).
+          NOTES
+          gh release create v5.4.1 ForestTime-5.4.1-release.apk --repo edacunac/ForestTime --target main --title "ForestTime v5.4.1" --notes-file release-notes.md

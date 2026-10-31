@@ -1,10 +1,21 @@
-# ForestTime v5.4.0
+# ForestTime v5.4.1
 
 A mobile platform for IUFRO-standardized time studies in forest operations.
 
 ## Overview
 
 ForestTime is an Android mobile application for conducting direct-observation time studies in mechanized, motor-manual, and manual forest operations. It implements the International Union of Forest Research Organizations (IUFRO) time-classification hierarchy together with machine-specific and user-defined work elements.
+
+## ForestTime 5.4.1
+
+Version 5.4.1 is a focused corrective release:
+
+- Removes the overlap at the 15% terrain-slope boundary.
+- Defines flat terrain as 0% <= slope <= 15%.
+- Defines moderate terrain as 15% < slope <= 30%.
+- Defines steep terrain as slope > 30%.
+- Preserves the ForestTime 5.4.0 study format and application identifier.
+- Updates the Android build toolchain to Kotlin 2.4.21 and KSP 2.3.12.
 
 ## ForestTime 5.4.0
 
@@ -35,9 +46,9 @@ Voice control is not included in this release. It remains a future-development o
 
 ## Installation
 
-Download `ForestTime-5.4.0-release.apk` from the [v5.4.0 GitHub release](https://github.com/edacunac/ForestTime/releases/tag/v5.4.0). Android 7.0 (API 24) or later is required.
+Download `ForestTime-5.4.1-release.apk` from the [v5.4.1 GitHub release](https://github.com/edacunac/ForestTime/releases/tag/v5.4.1). Android 7.0 (API 24) or later is required.
 
-ForestTime 5.4.0 uses a new application-signing key. Devices with ForestTime 5.3.0 or an earlier release installed must uninstall the previous version before installing 5.4.0. Export any studies that must be retained before uninstalling.
+ForestTime 5.4.1 uses the release-signing lineage introduced for version 5.4.0. Devices with ForestTime 5.3.0 or an earlier release installed must uninstall the previous version before installing 5.4.1. Export any studies that must be retained before uninstalling.
 
 ## Observation workflow
 
@@ -79,9 +90,11 @@ See the [data documentation](data/README.md).
 
 ## Citation and archive
 
-ForestTime v5.4.0 and the accompanying anonymized example data are archived at:
+The previous ForestTime v5.4.0 release and the accompanying anonymized example data are archived at:
 
 [https://doi.org/10.5281/zenodo.22062332](https://doi.org/10.5281/zenodo.22062332)
+
+The version-specific DOI for ForestTime v5.4.1 will be added after Zenodo completes the new-version deposit.
 
 If you use ForestTime in research, please cite:
 
